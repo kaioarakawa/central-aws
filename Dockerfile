@@ -18,10 +18,10 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copiar o JAR construído da fase anterior
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.jar central-aws.jar
 
 # Expor a porta em que a aplicação vai rodar
 EXPOSE 8080
 
 # Comando para executar a aplicação
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+ENTRYPOINT ["java","-jar","/app/central-aws.jar"]
