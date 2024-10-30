@@ -15,6 +15,7 @@
                 }
             ],
             "essential": true,
+            "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
             "logConfiguration": {
