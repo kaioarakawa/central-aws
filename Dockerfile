@@ -12,16 +12,16 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Fase de execução
-FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17-jdk-alpine
 
 # Diretório de trabalho
 WORKDIR /app
 
 # Copiar o JAR construído da fase anterior
-COPY --from=build /app/target/*.jar central-aws.jar
+COPY --from=build /app/target/*.jar app.jar
 
 # Expor a porta em que a aplicação vai rodar
 EXPOSE 8080
 
 # Comando para executar a aplicação
-ENTRYPOINT ["java","-jar","/app/central-aws.jar"]
+ENTRYPOINT ["java","-jar","/app/app.jar"]
