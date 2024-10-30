@@ -11,9 +11,9 @@ jobs:
 
       - name: Add secrets to Task Definition
         run: |
-          sed -i "s/<username>/$DATABASE_URL/g" springboot-app-task.json 
-          sed -i "s/<url>/$DATABASE_USERNAME/g" springboot-app-task.json
-          sed -i "s/<password>/$DATABASE_PASSWORD/g" springboot-app-task.json
+          sed -i "s|<username>|${{ secrets.DATABASE_URL }}|g" springboot-app-task.json
+          sed -i "s|<url>|${{ secrets.DATABASE_USERNAME }}|g" springboot-app-task.json
+          sed -i "s|<password>|${{ secrets.DATABASE_PASSWORD }}|g" springboot-app-task.json
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
           DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
