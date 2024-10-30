@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:877849060663:task-definition/springboot-app-task:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:877849060663:task-definition/springboot-app-task:6",
     "containerDefinitions": [
         {
             "name": "spring-central",
-            "image": "877849060663.dkr.ecr.us-east-1.amazonaws.com/central:latest",
+            "image": "877849060663.dkr.ecr.us-east-1.amazonaws.com/central:4d2a11814291091df92bf8dee2bd3ea21d072f9d",
             "cpu": 0,
             "portMappings": [
                 {
@@ -15,11 +15,22 @@
                 }
             ],
             "essential": true,
-            "environment": [],
-            "environmentFiles": [],
+            "environment": [
+                {
+                    "name": "DATABASE_USERNAME",
+                    "value": "${{ secrets.DATABASE_USERNAME }}"
+                },
+                {
+                    "name": "DATABASE_URL",
+                    "value": "${{ secrets.DATABASE_URL }}"
+                },
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "value": "${{ secrets.DATABASE_PASSWORD }}"
+                }
+            ],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -39,7 +50,7 @@
     "taskRoleArn": "arn:aws:iam::877849060663:role/ECSTaskRole",
     "executionRoleArn": "arn:aws:iam::877849060663:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,7 +99,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-30T18:32:26.285Z",
+    "registeredAt": "2024-10-30T21:28:45.119Z",
     "registeredBy": "arn:aws:iam::877849060663:root",
     "tags": []
 }
