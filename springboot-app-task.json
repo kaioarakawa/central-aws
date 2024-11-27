@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:877849060663:task-definition/springboot-app-task:13",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:877849060663:task-definition/springboot-app-task-definition:2",
     "containerDefinitions": [
         {
-            "name": "spring-central",
-            "image": "877849060663.dkr.ecr.us-east-1.amazonaws.com/central:3c1ee6a460b710cc38e740211d4bb56ed2c4d069",
+            "name": "springboot-central",
+            "image": "877849060663.dkr.ecr.us-east-1.amazonaws.com/central-sptringboot:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "spring-central-8080-tcp",
+                    "name": "springboot-central-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp",
@@ -29,12 +29,14 @@
                     "value": "<password>"
                 }
             ],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/springboot-app-task",
+                    "awslogs-group": "/ecs/springboot-app-task-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -46,11 +48,11 @@
             "systemControls": []
         }
     ],
-    "family": "springboot-app-task",
-    "taskRoleArn": "arn:aws:iam::877849060663:role/ECSTaskRole",
+    "family": "springboot-app-task-definition",
+    "taskRoleArn": "arn:aws:iam::877849060663:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::877849060663:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 13,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -99,7 +101,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-10-30T22:36:23.311Z",
+    "registeredAt": "2024-11-27T20:43:16.632Z",
     "registeredBy": "arn:aws:iam::877849060663:root",
     "tags": []
 }
