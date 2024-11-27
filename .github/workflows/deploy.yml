@@ -59,7 +59,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: springboot-app-task.json
-          container-name: spring-central
+          container-name: springboot-central
           image: ${{ steps.build-image.outputs.image }}
         env:
           DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
